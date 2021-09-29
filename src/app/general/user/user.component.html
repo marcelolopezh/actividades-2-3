@@ -1,0 +1,50 @@
+<form (ngSubmit)="registrar()" class="col-md-6 form-register col-xs-12">
+
+    <h2> Registrarse </h2>
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre : </label>
+        <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control" id="nombre" aria-describedby="emailHelp">
+
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Dirección Email : </label>
+        <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Nunca compartiremos tu información personal.</div>
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono : </label>
+        <input [(ngModel)]="telefono" name="telefono" type="text" class="form-control" id="numero" aria-describedby="numero" mask="999-999-9999">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="registrar">Registrar</button> <br /> <br />
+</form>
+
+<ul>
+    <li *ngFor="let err of errores; let i = index" class="text-danger">
+        {{err}}
+    </li>
+</ul>
+
+<div class="alert alert-success col-md-6 col-xs-12" role="alert" *ngIf="registered">
+    Se ha registrado exitosamente
+
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Nombre: {{user.nombre}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted"> Email: {{user.email}}</h6>
+            <p class="card-text">Telefono: {{user.telefono}}</p>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="alert alert-danger col-md-6 col-xs-12" role="alert" *ngIf="errorRegister">
+    Ingrese sus datos correctamente
+</div>

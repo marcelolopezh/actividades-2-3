@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <form (ngSubmit)="agregarProducto()" class="col-md-6 form-register col-xs-12">
+
+        <h2> Agregar Producto </h2>
+
+
+        <!-- el código – nombre – precios – stock de un producto. -->
+
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Codigo : </label>
+            <input [(ngModel)]="codigo" name="codigo" type="text" class="form-control" id="codigo" aria-describedby="codigoHelp">
+            <p *ngIf="codigoError != ''" class="text-danger">{{nombreError}}</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre : </label>
+            <input [(ngModel)]="nombre" name="nombre" type="nombre" class="form-control" id="nombre" aria-describedby="nombreHelp">
+            <p *ngIf="nombreError != ''" class="text-danger">{{nombreError}}</p>
+
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio : </label>
+            <input [(ngModel)]="precio" name="precio" type="number" class="form-control" id="precio" aria-describedby="precio">
+            <p *ngIf="precioError != ''" class="text-danger">{{precioError}}</p>
+
+        </div>
+        <div class="mb-3">
+            <label for="stock" class="form-label">Stock : </label>
+            <input [(ngModel)]="stock" name="stock" type="number" class="form-control" id="stock" aria-describedby="stockHelp">
+            <p *ngIf="stockError != ''" class="text-danger">{{stockError}}</p>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="registrar">Ingresar Producto</button> <br /> <br />
+    </form>
+
+</div>
+
+
+<div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"># Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productList">
+                <td>{{producto.codigo}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.stock}}</td>
+                <td>{{producto.precio}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
