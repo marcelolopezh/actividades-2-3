@@ -9,7 +9,7 @@
         <div class="mb-3">
             <label for="codigo" class="form-label">Codigo : </label>
             <input [(ngModel)]="codigo" name="codigo" type="text" class="form-control" id="codigo" aria-describedby="codigoHelp">
-            <p *ngIf="codigoError != ''" class="text-danger">{{nombreError}}</p>
+            <p *ngIf="codigoError != ''" class="text-danger">{{codigoError}}</p>
         </div>
 
         <div class="mb-3">
@@ -52,8 +52,8 @@
             <tr *ngFor="let producto of productList">
                 <td>{{producto.codigo}}</td>
                 <td>{{producto.nombre}}</td>
+                <td>{{producto.precio | currency:'CLP':'symbol-narrow'}}</td>
                 <td>{{producto.stock}}</td>
-                <td>{{producto.precio}}</td>
             </tr>
         </tbody>
     </table>
